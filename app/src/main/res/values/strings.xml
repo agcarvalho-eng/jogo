@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">JoaoVitor_avaliacao</string>
+
+    <string-array name="palavras">
+        <item>palavra1</item>
+        <item>palavra2</item>
+        <item>palavra3</item>
+        <item>palavra4</item>
+        <item>palavra5</item>
+        <item>palavra6</item>
+        <item>palavra7</item>
+        <item>palavra8</item>
+        <item>palavra9</item>
+        <item>palavra10</item>
+    </string-array>
+    <array name="dicas">
+        <item>Dica 1 item 1</item>
+        <item>Dica 2 item 1</item>
+        <item>Dica 3 item 1</item>
+
+        <item>Dica 1 item 2</item>
+        <item>Dica 2 item 2</item>
+        <item>Dica 3 item 2</item>
+
+        <item>Dica 1 item 2</item>
+        <item>Dica 2 item 2</item>
+        <item>Dica 3 item 2</item>
+
+        <item>Dica 1 item 3</item>
+        <item>Dica 2 item 3</item>
+        <item>Dica 3 item 3</item>
+
+        <item>Dica 1 item 4</item>
+        <item>Dica 2 item 4</item>
+        <item>Dica 3 item 4</item>
+
+        <item>Dica 1 item 5</item>
+        <item>Dica 2 item 5</item>
+        <item>Dica 3 item 5</item>
+
+        <item>Dica 1 item 6</item>
+        <item>Dica 2 item 6</item>
+        <item>Dica 3 item 6</item>
+
+        <item>Dica 1 item 7</item>
+        <item>Dica 2 item 7</item>
+        <item>Dica 3 item 7</item>
+
+        <item>Dica 1 item 8</item>
+        <item>Dica 2 item 8</item>
+        <item>Dica 3 item 8</item>
+
+        <item>Dica 1 item 9</item>
+        <item>Dica 2 item 9</item>
+        <item>Dica 3 item 9</item>
+
+        <item>Dica 1 item 10</item>
+        <item>Dica 2 item 10</item>
+        <item>Dica 3 item 10</item>
+    </array>
+
+</resources>
