@@ -1,6 +1,9 @@
 package com.example.joaovitor_avaliacao;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
@@ -16,15 +19,16 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Terceira_activity extends AppCompatActivity {
-
+public class Terceira_activity extends AppCompatActivity
+{
     TextView textViewPalavra;
     TextView textViewDica1;
     TextView textViewDica2;
     TextView textViewDica3;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_terceira);
@@ -40,41 +44,52 @@ public class Terceira_activity extends AppCompatActivity {
         textViewDica3 = findViewById(R.id.textViewDica3);
 
         Intent it = getIntent();
-        String nome_jogador = it.getStringExtra("jogador");
 
-        textViewPalavra.setText(it.getStringExtra("palavra"));
+        String palavra = it.getStringExtra("palavra");
+        textViewPalavra.setText(palavra);
 
+        String jogador = it.getStringExtra("jogador");
         Toolbar mytoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mytoolbar);
-        getSupportActionBar().setTitle(nome_jogador);
+        getSupportActionBar().setTitle(jogador.toString());
 
+        int posicao = it.getIntExtra("numero", 0);
+        String[] dicas = getDicas(this, posicao);
+
+        textViewDica1.setText(dicas[0]);
+        textViewDica2.setText(dicas[1]);
+        textViewDica3.setText(dicas[2]);
+    }
+
+
+    private String[] getDicas(Context context, int palavraPosicao)
+    {
+        Resources res = context.getResources();
+
+        String[] dicas_xml = res.getStringArray(R.array.dicas);
+
+        int posicaoInicial = palavraPosicao * 3;
+
+        String[] dicas = new String[]{
+                dicas_xml[posicaoInicial],
+                dicas_xml[posicaoInicial + 1],
+                dicas_xml[posicaoInicial + 2]
+        };
+        return dicas;
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         getMenuInflater().inflate(R.menu.menu,menu);
         return true;
     }
-    private ArrayList<String> getDicas()
+
+    public void montaToolBar(String nome_jogador)
     {
-        String[] dicas = getResources().getStringArray(R.array.dicas);
-
-        ArrayList<String> lisdicas = new ArrayList<>();
-
-        for (int i = 0; i < dicas.length; i++)
-        {
-            String dica = dicas[i];
-            int posicao = i * 3;
-            String[] itemsDicas = new String[]{
-                    dicas[posicao],
-                    dicas[posicao + 1],
-                    dicas[posicao + 2],
-            };
-            lisdicas.add(Arrays.toString(itemsDicas));
-
-            //não deu tempo continuar a implementação
-        }
-
-        return lisdicas;
+        Toolbar mytoolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mytoolbar);
+        getSupportActionBar().setTitle(nome_jogador);
     }
+
 }

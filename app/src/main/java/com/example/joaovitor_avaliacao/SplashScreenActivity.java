@@ -12,7 +12,6 @@ import androidx.core.view.WindowInsetsCompat;
 import android.os.Looper;
 
 public class SplashScreenActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +28,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(intent);
             }
-        },3000);
-
+        },2000);
 
     }
 }

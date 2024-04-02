@@ -15,7 +15,7 @@ public class Auxiliar_Sorteio {
     {
         String[] palavras = context.getResources().getStringArray(R.array.palavras);
 
-        indice = indice - 1; //devido a lista no arquivo começar no indice 0
+        //indice = indice - 1; //devido a lista no arquivo começar no indice 0
 
         return palavras[indice];
     }

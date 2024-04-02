@@ -2,61 +2,57 @@
     <string name="app_name">JoaoVitor_avaliacao</string>
 
     <string-array name="palavras">
-        <item>palavra1</item>
-        <item>palavra2</item>
-        <item>palavra3</item>
-        <item>palavra4</item>
-        <item>palavra5</item>
-        <item>palavra6</item>
-        <item>palavra7</item>
-        <item>palavra8</item>
-        <item>palavra9</item>
-        <item>palavra10</item>
+        <item>PHP</item>
+        <item>Java</item>
+        <item>Javascript</item>
+        <item>Python</item>
+        <item>Rust</item>
+        <item>Pascal</item>
+        <item>C#</item>
+        <item>Golang</item>
+        <item>Kotlin</item>
+        <item>Dart</item>
     </string-array>
     <array name="dicas">
-        <item>Dica 1 item 1</item>
-        <item>Dica 2 item 1</item>
-        <item>Dica 3 item 1</item>
+        <item>Linguagem presente em mais de 70% dos Sites Atualmente </item>
+        <item>É uma linguagem Interpretada</item>
+        <item>O mascote da linguagem é um Elefante</item>
 
-        <item>Dica 1 item 2</item>
-        <item>Dica 2 item 2</item>
-        <item>Dica 3 item 2</item>
+        <item>Linguagem desenvolvida na década de 90</item>
+        <item>Adquirida pela Oracle em 2008</item>
+        <item>Orientada a Objetos e uma das mais usadas no mundo</item>
 
-        <item>Dica 1 item 2</item>
-        <item>Dica 2 item 2</item>
-        <item>Dica 3 item 2</item>
+        <item>Linguagem mais usada no mundo atualmente</item>
+        <item>Utilizada no Front, Back, Mobile e Desktop</item>
+        <item>Roda em Navegadores</item>
 
-        <item>Dica 1 item 3</item>
-        <item>Dica 2 item 3</item>
-        <item>Dica 3 item 3</item>
+        <item>Linguagem conhecida por sua simplicidade</item>
+        <item>Muito utilizada na área de Análise de Dados</item>
+        <item>Tem uma serpente como mascote</item>
 
-        <item>Dica 1 item 4</item>
-        <item>Dica 2 item 4</item>
-        <item>Dica 3 item 4</item>
+        <item>Linguagem desenvolvida pela Mozilla Research</item>
+        <item>Linguagem do momento e amada por muitos programadores</item>
+        <item>Microsoft trocou C++ por essa linguagem</item>
 
-        <item>Dica 1 item 5</item>
-        <item>Dica 2 item 5</item>
-        <item>Dica 3 item 5</item>
+        <item>Linguagem utilizada em maioria em sistemas Desktop Windows</item>
+        <item>Não muito conhecida</item>
+        <item>É utilizada na IDE Delphi</item>
 
-        <item>Dica 1 item 6</item>
-        <item>Dica 2 item 6</item>
-        <item>Dica 3 item 6</item>
+        <item>Linguagem muito utilizada em desenvolvimento de Jogos</item>
+        <item>Faz parte da plataforma .NET</item>
+        <item>Conhecida como o "Java" da Microsoft</item>
 
-        <item>Dica 1 item 7</item>
-        <item>Dica 2 item 7</item>
-        <item>Dica 3 item 7</item>
+        <item>Linguagem criada pelo Google e focada em produtividade</item>
+        <item>Linguagem para Back End e muito performática</item>
+        <item>Seu mascote é conhecido como Gopher</item>
 
-        <item>Dica 1 item 8</item>
-        <item>Dica 2 item 8</item>
-        <item>Dica 3 item 8</item>
+        <item>A Google play possuí a maior parte dos apps feitos nessa linguagem</item>
+        <item>Desenvolvida pela Jetbrains</item>
+        <item>Linguagem oficial do Android</item>
 
-        <item>Dica 1 item 9</item>
-        <item>Dica 2 item 9</item>
-        <item>Dica 3 item 9</item>
-
-        <item>Dica 1 item 10</item>
-        <item>Dica 2 item 10</item>
-        <item>Dica 3 item 10</item>
+        <item>Linguagem muito utilizada em aplicativos multiplaformas</item>
+        <item>Foi criada pela Google</item>
+        <item>É utilizada no Framework Flutter</item>
     </array>
 
 </resources>
