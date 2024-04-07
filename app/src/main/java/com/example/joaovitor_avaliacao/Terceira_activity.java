@@ -6,6 +6,9 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,8 @@ public class Terceira_activity extends AppCompatActivity
     TextView textViewDica1;
     TextView textViewDica2;
     TextView textViewDica3;
+    Button btnJogar;
+    EditText edtNome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,16 +47,18 @@ public class Terceira_activity extends AppCompatActivity
         textViewDica1 = findViewById(R.id.textViewDica1);
         textViewDica2 = findViewById(R.id.textViewDica2);
         textViewDica3 = findViewById(R.id.textViewDica3);
+        edtNome = findViewById(R.id.edtNome);
+        btnJogar = findViewById(R.id.btnJogar);
 
         Intent it = getIntent();
 
         String palavra = it.getStringExtra("palavra");
         textViewPalavra.setText(palavra);
+        textViewPalavra.setVisibility(View.INVISIBLE);
 
         String jogador = it.getStringExtra("jogador");
-        Toolbar mytoolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(mytoolbar);
-        getSupportActionBar().setTitle(jogador.toString());
+
+        montaToolBar(jogador);
 
         int posicao = it.getIntExtra("numero", 0);
         String[] dicas = getDicas(this, posicao);
@@ -59,6 +66,29 @@ public class Terceira_activity extends AppCompatActivity
         textViewDica1.setText(dicas[0]);
         textViewDica2.setText(dicas[1]);
         textViewDica3.setText(dicas[2]);
+
+        btnJogar.setOnClickListener(new View.OnClickListener()
+        {
+            int tentativas = 0;
+            @Override
+            public void onClick(View v)
+            {
+                String textInformado = edtNome.getText().toString().trim();
+                if(!palavra.equals(textInformado)){
+                    tentativas++;
+                    switch (tentativas) {
+                        case 1:
+                            textViewDica2.setVisibility(View.VISIBLE);
+                            break;
+                        case 2:
+                            textViewDica3.setVisibility(View.VISIBLE);
+                            break;
+                    }
+                }else{
+                    Toast.makeText(Terceira_activity.this, "Acertou!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 
