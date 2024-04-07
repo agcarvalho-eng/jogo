@@ -3,15 +3,15 @@
 
     <string-array name="palavras">
         <item>PHP</item>
-        <item>Java</item>
-        <item>Javascript</item>
-        <item>Python</item>
-        <item>Rust</item>
-        <item>Pascal</item>
+        <item>JAVA</item>
+        <item>JAVASCRIPT</item>
+        <item>PYTHON</item>
+        <item>RUST</item>
+        <item>PASCAL</item>
         <item>C#</item>
-        <item>Golang</item>
-        <item>Kotlin</item>
-        <item>Dart</item>
+        <item>GOLANG</item>
+        <item>KOTLIN</item>
+        <item>DART</item>
     </string-array>
     <array name="dicas">
         <item>Linguagem presente em mais de 70% dos Sites Atualmente </item>

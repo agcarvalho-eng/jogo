@@ -73,7 +73,7 @@ public class Terceira_activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                String textInformado = edtNome.getText().toString().trim();
+                String textInformado = edtNome.getText().toString().trim().toUpperCase();
                 if(!palavra.equals(textInformado)){
                     tentativas++;
                     switch (tentativas) {
@@ -86,6 +86,8 @@ public class Terceira_activity extends AppCompatActivity
                     }
                 }else{
                     Toast.makeText(Terceira_activity.this, "Acertou!!", Toast.LENGTH_SHORT).show();
+                    textViewPalavra.setText("Parabéns! A palavra enigmática é  "+palavra.substring(0, 1).toUpperCase() + palavra.substring(1).toLowerCase());
+                    textViewPalavra.setVisibility(View.VISIBLE);
                 }
             }
         });
