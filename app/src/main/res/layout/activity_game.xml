@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:text="Dica2"
             />
 
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:visibility="visible"
+            android:visibility="invisible"
             />
 
         <EditText
