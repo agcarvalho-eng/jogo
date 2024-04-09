@@ -119,7 +119,7 @@ public class GameActivity extends AppCompatActivity
         Toolbar mytoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mytoolbar);
         getSupportActionBar().setTitle(nome_jogador);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
