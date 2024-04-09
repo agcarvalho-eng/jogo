@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import com.example.joaovitor_avaliacao.View.GameOverActivity;
 
 public class GameActivity extends AppCompatActivity
 {
@@ -80,6 +81,9 @@ public class GameActivity extends AppCompatActivity
                             textViewDica3.setVisibility(View.VISIBLE);
                             vida2.setVisibility(View.INVISIBLE);
                             break;
+                        case 3:
+                            Intent it = new Intent(GameActivity.this, GameOverActivity.class);
+                            startActivity(it);
                     }
                 }else{
                     Toast.makeText(GameActivity.this, "Acertou!!", Toast.LENGTH_SHORT).show();
