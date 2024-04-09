@@ -19,15 +19,17 @@ import com.example.joaovitor_avaliacao.R;
 
 public class GameActivity extends AppCompatActivity
 {
-    TextView textViewPalavra;
-    TextView textViewDica1;
-    TextView textViewDica2;
-    TextView textViewDica3;
-    Button btnJogar;
-    EditText edtNome;
-    ImageView vida1;
-    ImageView vida2;
-    ImageView vida3;
+    private TextView textViewPalavra;
+    private TextView textViewDica1;
+    private TextView textViewDica2;
+    private TextView textViewDica3;
+    private Button btnJogar;
+    private EditText edtNome;
+    private ImageView vida1;
+    private ImageView vida2;
+    private ImageView vida3;
+    private String palavra;
+    private int tentativas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,6 +43,26 @@ public class GameActivity extends AppCompatActivity
             return insets;
         });
 
+        configuraViews();
+        iniciarJogo();
+        btnJogar.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String textInformado = edtNome.getText().toString().trim().toUpperCase();
+                if(!palavra.equals(textInformado)){
+                    tentativas++;
+                    deducaoIncorreta();
+                }else{
+                    deducaoCorreta();
+                }
+            }
+        });
+    }
+
+    private void configuraViews()
+    {
         textViewPalavra = findViewById(R.id.textViewPalavra);
         textViewDica1 = findViewById(R.id.textViewDica1);
         textViewDica2 = findViewById(R.id.textViewDica2);
@@ -50,49 +72,49 @@ public class GameActivity extends AppCompatActivity
         vida1 = findViewById(R.id.vida1);
         vida2 = findViewById(R.id.vida2);
         vida3 = findViewById(R.id.vida3);
+    }
 
+    private void iniciarJogo()
+    {
         Intent it = getIntent();
-        String palavra = it.getStringExtra("palavra");
-        String jogador = it.getStringExtra("jogador");
 
-        montaToolBar(jogador);
+        palavra = it.getStringExtra("palavra");
 
-        int posicao = it.getIntExtra("numero", 0);
-        String[] dicas = getDicas(this, posicao);
+        montaToolBar(it.getStringExtra("jogador"));
+
+        tentativas = 0;
+
+        String[] dicas = getDicas(this, it.getIntExtra("numero", 0));
 
         textViewDica1.setText("Dica 1: "+dicas[0]);
         textViewDica2.setText("Dica 2: "+dicas[1]);
         textViewDica3.setText("Dica 3: "+dicas[2]);
-
-        btnJogar.setOnClickListener(new View.OnClickListener()
-        {
-            int tentativas = 0;
-            @Override
-            public void onClick(View v)
-            {
-                String textInformado = edtNome.getText().toString().trim().toUpperCase();
-                if(!palavra.equals(textInformado)){
-                    tentativas++;
-                    switch (tentativas) {
-                        case 1:
-                            textViewDica2.setVisibility(View.VISIBLE);
-                            vida1.setVisibility(View.INVISIBLE);
-                            break;
-                        case 2:
-                            textViewDica3.setVisibility(View.VISIBLE);
-                            vida2.setVisibility(View.INVISIBLE);
-                            break;
-                        case 3:
-                            startActivity(new Intent(GameActivity.this, GameOverActivity.class));
-                    }
-                }else{
-                    Toast.makeText(GameActivity.this, "Acertou!!", Toast.LENGTH_SHORT).show();
-                    textViewPalavra.setText("Parabéns! A palavra enigmática é  "+palavra.substring(0, 1).toUpperCase() + palavra.substring(1).toLowerCase());
-                    textViewPalavra.setVisibility(View.VISIBLE);
-                }
-            }
-        });
     }
+
+    private void deducaoIncorreta()
+    {
+        switch (tentativas)
+        {
+            case 1:
+                textViewDica2.setVisibility(View.VISIBLE);
+                vida1.setVisibility(View.INVISIBLE);
+                break;
+            case 2:
+                textViewDica3.setVisibility(View.VISIBLE);
+                vida2.setVisibility(View.INVISIBLE);
+                break;
+            case 3:
+                startActivity(new Intent(GameActivity.this, GameOverActivity.class));
+        }
+    }
+
+    private void deducaoCorreta()
+    {
+        Toast.makeText(GameActivity.this, "Acertou!!", Toast.LENGTH_SHORT).show();
+        textViewPalavra.setText("Parabéns! A palavra enigmática é  "+palavra.substring(0, 1).toUpperCase() + palavra.substring(1).toLowerCase());
+        textViewPalavra.setVisibility(View.VISIBLE);
+    }
+
     private String[] getDicas(Context context, int palavraPosicao)
     {
         String[] dicas_xml = context.getResources().getStringArray(R.array.dicas);
