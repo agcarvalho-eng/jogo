@@ -127,15 +127,25 @@ public class GameActivity extends AppCompatActivity
     {
        if (item.getTitle().equals("Jogar novamente"))
        {
-           startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
+           jogarNovamente();
        }else if(item.getTitle().equals("Pontuação"))
        {
-           startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
+           verPontuacoes();
        } else if (item.getTitle().equals("Sair"))
        {
            finishAffinity();
        }
         return true;
+    }
+
+    public void jogarNovamente()
+    {
+        startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
+    }
+
+    public void verPontuacoes()
+    {
+        startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
     }
 
 }
