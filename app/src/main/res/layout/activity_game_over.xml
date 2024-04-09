@@ -26,12 +26,17 @@
             android:layout_marginTop="10dp"
             />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/sad"
+        />
+
     <Button
             android:id="@+id/btnJogarNovamente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Deseja jogar novamente?"
-            android:layout_marginTop="35dp"
             android:layout_marginLeft="25dp"
             android:backgroundTint="@color/azul"
             android:layout_marginRight="25dp"
