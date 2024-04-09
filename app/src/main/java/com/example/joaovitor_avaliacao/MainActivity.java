@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 int numero_aleatorio = Auxiliar_Sorteio.geraNumeroAleatorio();
                 String palavra_sorteada = Auxiliar_Sorteio.sorteiaPalavra(MainActivity.this, numero_aleatorio);
 
-                Intent it = new Intent(MainActivity.this, Terceira_activity.class);
+                Intent it = new Intent(MainActivity.this, GameActivity.class);
 
                 it.putExtra("jogador", edtTextNome.getText().toString());
                 it.putExtra("numero", numero_aleatorio);

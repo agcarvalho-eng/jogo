@@ -3,14 +3,10 @@ package com.example.joaovitor_avaliacao;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,10 +15,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class Terceira_activity extends AppCompatActivity
+public class GameActivity extends AppCompatActivity
 {
     TextView textViewPalavra;
     TextView textViewDica1;
@@ -30,13 +23,16 @@ public class Terceira_activity extends AppCompatActivity
     TextView textViewDica3;
     Button btnJogar;
     EditText edtNome;
+    ImageView vida1;
+    ImageView vida2;
+    ImageView vida3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_terceira);
+        setContentView(R.layout.activity_game);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -49,13 +45,12 @@ public class Terceira_activity extends AppCompatActivity
         textViewDica3 = findViewById(R.id.textViewDica3);
         edtNome = findViewById(R.id.edtNome);
         btnJogar = findViewById(R.id.btnJogar);
+        vida1 = findViewById(R.id.vida1);
+        vida2 = findViewById(R.id.vida2);
+        vida3 = findViewById(R.id.vida3);
 
         Intent it = getIntent();
-
         String palavra = it.getStringExtra("palavra");
-        textViewPalavra.setText(palavra);
-        textViewPalavra.setVisibility(View.INVISIBLE);
-
         String jogador = it.getStringExtra("jogador");
 
         montaToolBar(jogador);
@@ -63,9 +58,9 @@ public class Terceira_activity extends AppCompatActivity
         int posicao = it.getIntExtra("numero", 0);
         String[] dicas = getDicas(this, posicao);
 
-        textViewDica1.setText(dicas[0]);
-        textViewDica2.setText(dicas[1]);
-        textViewDica3.setText(dicas[2]);
+        textViewDica1.setText("Dica 1: "+dicas[0]);
+        textViewDica2.setText("Dica 2: "+dicas[1]);
+        textViewDica3.setText("Dica 3: "+dicas[2]);
 
         btnJogar.setOnClickListener(new View.OnClickListener()
         {
@@ -79,21 +74,21 @@ public class Terceira_activity extends AppCompatActivity
                     switch (tentativas) {
                         case 1:
                             textViewDica2.setVisibility(View.VISIBLE);
+                            vida1.setVisibility(View.INVISIBLE);
                             break;
                         case 2:
                             textViewDica3.setVisibility(View.VISIBLE);
+                            vida2.setVisibility(View.INVISIBLE);
                             break;
                     }
                 }else{
-                    Toast.makeText(Terceira_activity.this, "Acertou!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GameActivity.this, "Acertou!!", Toast.LENGTH_SHORT).show();
                     textViewPalavra.setText("Parabéns! A palavra enigmática é  "+palavra.substring(0, 1).toUpperCase() + palavra.substring(1).toLowerCase());
                     textViewPalavra.setVisibility(View.VISIBLE);
                 }
             }
         });
     }
-
-
     private String[] getDicas(Context context, int palavraPosicao)
     {
         Resources res = context.getResources();
