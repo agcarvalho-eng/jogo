@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.example.joaovitor_avaliacao.MainActivity;
 import com.example.joaovitor_avaliacao.R;
 
 public class GameOverActivity extends AppCompatActivity
@@ -37,8 +36,7 @@ public class GameOverActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent it = new Intent(GameOverActivity.this, MainActivity.class);
-                startActivity(it);
+                startActivity(new Intent(GameOverActivity.this, MainActivity.class));
             }
         });
     }

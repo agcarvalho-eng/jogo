@@ -1,20 +1,21 @@
-package com.example.joaovitor_avaliacao;
+package com.example.joaovitor_avaliacao.View;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.example.joaovitor_avaliacao.View.GameOverActivity;
+import com.example.joaovitor_avaliacao.R;
 
 public class GameActivity extends AppCompatActivity
 {
@@ -82,8 +83,7 @@ public class GameActivity extends AppCompatActivity
                             vida2.setVisibility(View.INVISIBLE);
                             break;
                         case 3:
-                            Intent it = new Intent(GameActivity.this, GameOverActivity.class);
-                            startActivity(it);
+                            startActivity(new Intent(GameActivity.this, GameOverActivity.class));
                     }
                 }else{
                     Toast.makeText(GameActivity.this, "Acertou!!", Toast.LENGTH_SHORT).show();
@@ -95,9 +95,7 @@ public class GameActivity extends AppCompatActivity
     }
     private String[] getDicas(Context context, int palavraPosicao)
     {
-        Resources res = context.getResources();
-
-        String[] dicas_xml = res.getStringArray(R.array.dicas);
+        String[] dicas_xml = context.getResources().getStringArray(R.array.dicas);
 
         int posicaoInicial = palavraPosicao * 3;
 
@@ -112,7 +110,7 @@ public class GameActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.menu,menu);
+        getMenuInflater().inflate(R.menu.mymenu,menu);
         return true;
     }
 
@@ -121,6 +119,25 @@ public class GameActivity extends AppCompatActivity
         Toolbar mytoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mytoolbar);
         getSupportActionBar().setTitle(nome_jogador);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+//    {
+//        int id = item.getItemId();
+//
+//        switch (id) {
+//            case R.id.item1:
+//                startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
+//                return true;
+//            case R.id.item2:
+//                startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
+//                return true;
+//            case R.id.item3:
+//                finish();
+//                return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }
