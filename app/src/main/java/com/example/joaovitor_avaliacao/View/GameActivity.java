@@ -122,22 +122,20 @@ public class GameActivity extends AppCompatActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item)
-//    {
-//        int id = item.getItemId();
-//
-//        switch (id) {
-//            case R.id.item1:
-//                startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
-//                return true;
-//            case R.id.item2:
-//                startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
-//                return true;
-//            case R.id.item3:
-//                finish();
-//                return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+       if (item.getTitle().equals("Jogar novamente"))
+       {
+           startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
+       }else if(item.getTitle().equals("Pontuação"))
+       {
+           startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
+       } else if (item.getTitle().equals("Sair"))
+       {
+           finishAffinity();
+       }
+        return true;
+    }
+
 }

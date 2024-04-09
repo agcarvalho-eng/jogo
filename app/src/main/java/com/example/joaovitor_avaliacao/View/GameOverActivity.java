@@ -14,7 +14,6 @@ import com.example.joaovitor_avaliacao.R;
 
 public class GameOverActivity extends AppCompatActivity
 {
-
     Button btnJogarNovamente;
 
     @Override

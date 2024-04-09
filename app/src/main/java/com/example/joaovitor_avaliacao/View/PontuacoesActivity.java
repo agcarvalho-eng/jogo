@@ -11,7 +11,6 @@ import com.example.joaovitor_avaliacao.R;
 
 public class PontuacoesActivity extends AppCompatActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
