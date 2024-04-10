@@ -27,14 +27,6 @@
             />
 
         <TextView
-            android:id="@+id/textViewPalavra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:visibility="invisible"
-            />
-
-        <TextView
             android:id="@+id/textViewDica1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

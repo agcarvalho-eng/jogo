@@ -27,20 +27,30 @@
             />
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="483dp"
-        app:srcCompat="@drawable/sad" />
+            android:layout_width="match_parent"
+            android:layout_height="434dp"
+            app:srcCompat="@drawable/sad" />
 
     <Button
             android:id="@+id/btnJogarNovamente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="jogar novamente"
+            android:text="Jogar novamente"
             android:textSize="18dp"
-            android:layout_marginBottom="20dp"
             android:layout_marginLeft="25dp"
             android:backgroundTint="@color/azul"
             android:layout_marginRight="25dp"
+            />
+
+    <Button
+            android:id="@+id/btnSairDoJogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/vermelho"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="18dp"
+            android:text="Sair do Jogo"
             />
 
 </LinearLayout>

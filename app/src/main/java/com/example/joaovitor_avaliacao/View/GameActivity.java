@@ -22,7 +22,6 @@ import com.example.joaovitor_avaliacao.R;
 public class GameActivity extends AppCompatActivity
 {
     private Jogo jogo;
-    private TextView textViewPalavra;
     private TextView textViewDica1;
     private TextView textViewDica2;
     private TextView textViewDica3;
@@ -30,8 +29,6 @@ public class GameActivity extends AppCompatActivity
     private EditText edtNome;
     private ImageView vida1;
     private ImageView vida2;
-    private String palavra;
-    private int tentativas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -53,17 +50,21 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 String textInformado = edtNome.getText().toString().trim().toUpperCase();
-                if(!jogo.verificaDeducao(textInformado)){
-                    deducaoIncorreta();
-                }else{
-                    deducaoCorreta();
+
+                if (!textInformado.equals("")){
+                    if(!jogo.verificaDeducao(textInformado)){
+                        deducaoIncorreta();
+                    }else{
+                        deducaoCorreta();
+                    }
+                }else {
+                    Toast.makeText(GameActivity.this, "Por favor, informe uma palavra!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
     private void configuraViews()
     {
-        textViewPalavra = findViewById(R.id.textViewPalavra);
         textViewDica1 = findViewById(R.id.textViewDica1);
         textViewDica2 = findViewById(R.id.textViewDica2);
         textViewDica3 = findViewById(R.id.textViewDica3);
@@ -77,13 +78,12 @@ public class GameActivity extends AppCompatActivity
     {
         Intent it = getIntent();
 
-        palavra = it.getStringExtra("palavra");
+        String palavra = it.getStringExtra("palavra");
         jogo = new Jogo(palavra);
 
         montaToolBar(it.getStringExtra("jogador"));
 
         String[] dicas = getDicas(this, it.getIntExtra("numero", 0));
-
         textViewDica1.setText("Dica 1: "+dicas[0]);
         textViewDica2.setText("Dica 2: "+dicas[1]);
         textViewDica3.setText("Dica 3: "+dicas[2]);
@@ -91,6 +91,7 @@ public class GameActivity extends AppCompatActivity
 
     private void deducaoIncorreta()
     {
+        int tentativas = jogo.getTentativas();
         switch (tentativas)
         {
             case 1:
@@ -108,7 +109,7 @@ public class GameActivity extends AppCompatActivity
 
     private void deducaoCorreta()
     {
-        MyDialog dialog = new MyDialog("Você acertou! A palavra é '"+jogo.getPalavra()+"', deseja jogar novamente?", GameActivity.this);
+        MyDialog dialog = new MyDialog("Você acertou! Deseja jogar novamente?", GameActivity.this);
         dialog.show(getSupportFragmentManager(), "dialog");
     }
 
@@ -137,7 +138,7 @@ public class GameActivity extends AppCompatActivity
     {
         Toolbar mytoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mytoolbar);
-        getSupportActionBar().setTitle(nome_jogador);
+        getSupportActionBar().setTitle("Jogador: "+nome_jogador);
     }
 
     @Override

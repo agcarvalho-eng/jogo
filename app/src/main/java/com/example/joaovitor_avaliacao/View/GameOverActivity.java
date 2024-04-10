@@ -1,5 +1,6 @@
 package com.example.joaovitor_avaliacao.View;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,7 +16,9 @@ import com.example.joaovitor_avaliacao.R;
 public class GameOverActivity extends AppCompatActivity
 {
     Button btnJogarNovamente;
+    Button btnSairDoJogo;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -29,13 +32,22 @@ public class GameOverActivity extends AppCompatActivity
         });
 
         btnJogarNovamente = findViewById(R.id.btnJogarNovamente);
-
+        btnSairDoJogo = findViewById(R.id.btnSairDoJogo);
         btnJogarNovamente.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 startActivity(new Intent(GameOverActivity.this, MainActivity.class));
+            }
+        });
+
+        btnSairDoJogo.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                finishAffinity();
             }
         });
     }

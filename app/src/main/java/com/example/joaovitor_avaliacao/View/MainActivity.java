@@ -39,16 +39,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                int numero_aleatorio = Auxiliar_Sorteio.geraNumeroAleatorio();
-                String palavra_sorteada = Auxiliar_Sorteio.sorteiaPalavra(MainActivity.this, numero_aleatorio);
+                String jogador = edtTextNome.getText().toString();
+                if (!jogador.equals("")){
+                    int numero_aleatorio = Auxiliar_Sorteio.geraNumeroAleatorio();
+                    String palavra_sorteada = Auxiliar_Sorteio.sorteiaPalavra(MainActivity.this, numero_aleatorio);
 
-                Intent it = new Intent(MainActivity.this, GameActivity.class);
+                    Intent it = new Intent(MainActivity.this, GameActivity.class);
+                    it.putExtra("jogador", jogador);
+                    it.putExtra("numero", numero_aleatorio);
+                    it.putExtra("palavra", palavra_sorteada);
 
-                it.putExtra("jogador", edtTextNome.getText().toString());
-                it.putExtra("numero", numero_aleatorio);
-                it.putExtra("palavra", palavra_sorteada);
-                Toast.makeText(MainActivity.this, "Posição:"+numero_aleatorio, Toast.LENGTH_SHORT).show();
-                startActivity(it);
+                    Toast.makeText(MainActivity.this, "Posição:"+numero_aleatorio, Toast.LENGTH_SHORT).show();
+
+                    startActivity(it);
+                }else {
+                    Toast.makeText(MainActivity.this, "Por favor informe seu nome!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
