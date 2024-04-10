@@ -16,10 +16,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import com.example.joaovitor_avaliacao.Model.Jogo;
 import com.example.joaovitor_avaliacao.R;
 
 public class GameActivity extends AppCompatActivity
 {
+    private Jogo jogo;
     private TextView textViewPalavra;
     private TextView textViewDica1;
     private TextView textViewDica2;
@@ -51,8 +53,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 String textInformado = edtNome.getText().toString().trim().toUpperCase();
-                if(!palavra.equals(textInformado)){
-                    tentativas++;
+                if(!jogo.verificaDeducao(textInformado)){
                     deducaoIncorreta();
                 }else{
                     deducaoCorreta();
@@ -60,7 +61,6 @@ public class GameActivity extends AppCompatActivity
             }
         });
     }
-
     private void configuraViews()
     {
         textViewPalavra = findViewById(R.id.textViewPalavra);
@@ -78,10 +78,9 @@ public class GameActivity extends AppCompatActivity
         Intent it = getIntent();
 
         palavra = it.getStringExtra("palavra");
+        jogo = new Jogo(palavra);
 
         montaToolBar(it.getStringExtra("jogador"));
-
-        tentativas = 0;
 
         String[] dicas = getDicas(this, it.getIntExtra("numero", 0));
 
@@ -140,7 +139,6 @@ public class GameActivity extends AppCompatActivity
         Toolbar mytoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mytoolbar);
         getSupportActionBar().setTitle(nome_jogador);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -161,22 +159,7 @@ public class GameActivity extends AppCompatActivity
 
     public void jogarNovamente()
     {
-        DialogInterface.OnClickListener acaoPositiva = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(GameActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        };
-        DialogInterface.OnClickListener acaoNegativa = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(GameActivity.this, PontuacoesActivity.class);
-                startActivity(intent);
-            }
-        };
-
-        MyDialog dialog = new MyDialog("Deseja jogar novamente?", acaoPositiva, acaoNegativa);
+        MyDialog dialog = new MyDialog("Deseja jogar novamente?", GameActivity.this);
         dialog.show(getSupportFragmentManager(), "dialog");
     }
 
