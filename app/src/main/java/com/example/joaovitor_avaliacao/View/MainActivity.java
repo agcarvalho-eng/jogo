@@ -17,6 +17,10 @@ import com.example.joaovitor_avaliacao.Utils.Auxiliar_Sorteio;
 public class MainActivity extends AppCompatActivity {
     private Button btnJogar;
     private EditText edtTextNome;
+    private int numeroAleatorio;
+    private String palavraSorteada;
+
+    private String jogador;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -33,29 +37,33 @@ public class MainActivity extends AppCompatActivity {
 
         btnJogar = findViewById(R.id.btnJogar);
         edtTextNome = findViewById(R.id.edtNome);
-
         btnJogar.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                String jogador = edtTextNome.getText().toString();
+                jogador = edtTextNome.getText().toString();
                 if (!jogador.equals("")){
-                    int numero_aleatorio = Auxiliar_Sorteio.geraNumeroAleatorio();
-                    String palavra_sorteada = Auxiliar_Sorteio.sorteiaPalavra(MainActivity.this, numero_aleatorio);
-
-                    Intent it = new Intent(MainActivity.this, GameActivity.class);
-                    it.putExtra("jogador", jogador);
-                    it.putExtra("numero", numero_aleatorio);
-                    it.putExtra("palavra", palavra_sorteada);
-
-                    Toast.makeText(MainActivity.this, "Posição:"+numero_aleatorio, Toast.LENGTH_SHORT).show();
-
-                    startActivity(it);
+                    novoJogo();
                 }else {
                     Toast.makeText(MainActivity.this, "Por favor informe seu nome!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private void novoJogo()
+    {
+        numeroAleatorio = Auxiliar_Sorteio.geraNumeroAleatorio();
+        palavraSorteada = Auxiliar_Sorteio.sorteiaPalavra(MainActivity.this, numeroAleatorio);
+
+        Intent it = new Intent(MainActivity.this, GameActivity.class);
+        it.putExtra("jogador", jogador);
+        it.putExtra("numero", numeroAleatorio);
+        it.putExtra("palavra", palavraSorteada);
+
+        Toast.makeText(MainActivity.this, "Posição:"+numeroAleatorio, Toast.LENGTH_SHORT).show();
+
+        startActivity(it);
     }
 }

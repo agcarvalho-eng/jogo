@@ -1,7 +1,6 @@
 package com.example.joaovitor_avaliacao.View;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,8 +15,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.joaovitor_avaliacao.Model.Jogada;
 import com.example.joaovitor_avaliacao.Model.Jogo;
 import com.example.joaovitor_avaliacao.R;
+import com.example.joaovitor_avaliacao.Singletons.DadosGlobais;
+
+import java.security.PublicKey;
+import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity
 {
@@ -30,6 +35,7 @@ public class GameActivity extends AppCompatActivity
     private ImageView vida1;
     private ImageView vida2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -41,7 +47,6 @@ public class GameActivity extends AppCompatActivity
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         configuraViews();
         iniciarJogo();
         btnJogar.setOnClickListener(new View.OnClickListener()
@@ -91,25 +96,30 @@ public class GameActivity extends AppCompatActivity
 
     private void deducaoIncorreta()
     {
-        int tentativas = jogo.getTentativas();
-        switch (tentativas)
+        switch (jogo.getTentativas())
         {
             case 1:
+                jogo.getJogada().errou();
                 textViewDica2.setVisibility(View.VISIBLE);
                 vida1.setVisibility(View.INVISIBLE);
                 break;
             case 2:
+                jogo.getJogada().errou();
                 textViewDica3.setVisibility(View.VISIBLE);
                 vida2.setVisibility(View.INVISIBLE);
                 break;
             case 3:
-                startActivity(new Intent(GameActivity.this, GameOverActivity.class));
+                jogo.getJogada().errou();
+                DadosGlobais.getInstance().getJogadas().add(jogo.getJogada());
+                MyDialog dialog = new MyDialog("Game Over! Deseja jogar novamente?");
+                dialog.show(getSupportFragmentManager(), "dialog");
         }
     }
 
     private void deducaoCorreta()
     {
-        MyDialog dialog = new MyDialog("Você acertou! Deseja jogar novamente?", GameActivity.this);
+        DadosGlobais.getInstance().getJogadas().add(jogo.getJogada());
+        MyDialog dialog = new MyDialog("Você acertou! Deseja jogar novamente?");
         dialog.show(getSupportFragmentManager(), "dialog");
     }
 
@@ -159,13 +169,15 @@ public class GameActivity extends AppCompatActivity
 
     public void jogarNovamente()
     {
-        MyDialog dialog = new MyDialog("Deseja jogar novamente?", GameActivity.this);
+        MyDialog dialog = new MyDialog("Deseja jogar novamente?");
         dialog.show(getSupportFragmentManager(), "dialog");
     }
 
     public void verPontuacoes()
     {
-        startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
+        Intent it = new Intent(GameActivity.this, PontuacoesActivity.class);
+        it.putExtra("descrescente", true);
+        startActivity(it);
     }
 
 }

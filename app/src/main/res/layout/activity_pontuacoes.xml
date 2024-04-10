@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".View.PontuacoesActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pontuações"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:layout_marginBottom="3dp"
+        />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="560dp"
+        android:paddingTop="5dp" />
+
     <Button
             android:id="@+id/btnJogarNovamente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/azul"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="25dp"
             android:layout_marginLeft="25dp"
             android:textSize="18dp"
@@ -26,6 +41,7 @@
             android:backgroundTint="@color/vermelho"
             android:layout_marginRight="25dp"
             android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
             android:textSize="18dp"
             android:text="Sair do Jogo"
             />

@@ -2,23 +2,23 @@ package com.example.joaovitor_avaliacao.View;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
+import com.example.joaovitor_avaliacao.Model.Jogada;
+
+import java.util.ArrayList;
+
 public class MyDialog extends DialogFragment
 {
-    protected String title;
-    protected Context contextoAtual;
+    private String title;
 
-    public MyDialog(String title, Context contextoAtual)
-    {
+    public MyDialog(String title) {
         this.title = title;
-        this.contextoAtual = contextoAtual;
     }
     @NonNull
     @Override
@@ -26,10 +26,10 @@ public class MyDialog extends DialogFragment
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(title)
                 .setPositiveButton("Sim", (dialogInterface, i) -> {
-                    startActivity(new Intent(contextoAtual, MainActivity.class));
+                    startActivity(new Intent(getContext(), MainActivity.class));
                 })
                 .setNegativeButton("Não", (dialogInterface, i) -> {
-                    startActivity(new Intent(contextoAtual, PontuacoesActivity.class));
+                    startActivity(new Intent(getContext(), PontuacoesActivity.class));
                 });
         return builder.create();
     }

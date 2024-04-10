@@ -1,14 +1,18 @@
 package com.example.joaovitor_avaliacao.Model;
 
+import com.example.joaovitor_avaliacao.Singletons.DadosGlobais;
+
 public class Jogo
 {
     private String palavra;
     private int tentativas;
+    private Jogada jogada;
 
     public Jogo(String palavra)
     {
         this.palavra = palavra;
         this.tentativas = 0;
+        this.jogada = new Jogada(DadosGlobais.getInstance().getJogadas().size() + 1);
     }
 
     public boolean verificaDeducao(String deducao)
@@ -26,5 +30,10 @@ public class Jogo
     {
         return tentativas;
     }
+
+    public Jogada getJogada() {
+        return jogada;
+    }
+
 
 }
