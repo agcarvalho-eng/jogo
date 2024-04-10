@@ -13,19 +13,18 @@ import androidx.fragment.app.DialogFragment;
 public class MyDialog extends DialogFragment
 {
     protected String title;
-    Context contextoAtual;
+    protected Context contextoAtual;
 
     public MyDialog(String title, Context contextoAtual)
     {
         this.title = title;
         this.contextoAtual = contextoAtual;
     }
-
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Deseja jogar novamente?")
+        builder.setTitle(title)
                 .setPositiveButton("Sim", (dialogInterface, i) -> {
                     startActivity(new Intent(contextoAtual, MainActivity.class));
                 })

@@ -108,9 +108,8 @@ public class GameActivity extends AppCompatActivity
 
     private void deducaoCorreta()
     {
-        Toast.makeText(GameActivity.this, "Acertou!!", Toast.LENGTH_SHORT).show();
-        textViewPalavra.setText("Parabéns! A palavra enigmática é  "+palavra.substring(0, 1).toUpperCase() + palavra.substring(1).toLowerCase());
-        textViewPalavra.setVisibility(View.VISIBLE);
+        MyDialog dialog = new MyDialog("Você acertou! A palavra é '"+jogo.getPalavra()+"', deseja jogar novamente?", GameActivity.this);
+        dialog.show(getSupportFragmentManager(), "dialog");
     }
 
     private String[] getDicas(Context context, int palavraPosicao)
