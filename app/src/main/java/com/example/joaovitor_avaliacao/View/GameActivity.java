@@ -1,6 +1,7 @@
 package com.example.joaovitor_avaliacao.View;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,7 +28,6 @@ public class GameActivity extends AppCompatActivity
     private EditText edtNome;
     private ImageView vida1;
     private ImageView vida2;
-    private ImageView vida3;
     private String palavra;
     private int tentativas;
 
@@ -71,7 +71,6 @@ public class GameActivity extends AppCompatActivity
         btnJogar = findViewById(R.id.btnJogar);
         vida1 = findViewById(R.id.vida1);
         vida2 = findViewById(R.id.vida2);
-        vida3 = findViewById(R.id.vida3);
     }
 
     private void iniciarJogo()
@@ -162,7 +161,23 @@ public class GameActivity extends AppCompatActivity
 
     public void jogarNovamente()
     {
-        startActivity(new Intent(GameActivity.this, PontuacoesActivity.class));
+        DialogInterface.OnClickListener acaoPositiva = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        };
+        DialogInterface.OnClickListener acaoNegativa = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(GameActivity.this, PontuacoesActivity.class);
+                startActivity(intent);
+            }
+        };
+
+        MyDialog dialog = new MyDialog("Deseja jogar novamente?", acaoPositiva, acaoNegativa);
+        dialog.show(getSupportFragmentManager(), "dialog");
     }
 
     public void verPontuacoes()
