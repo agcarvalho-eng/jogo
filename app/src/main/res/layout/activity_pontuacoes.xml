@@ -22,28 +22,29 @@
         android:layout_height="560dp"
         android:paddingTop="5dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/btnJogarNovamente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
             android:backgroundTint="@color/azul"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            android:textSize="18dp"
             android:text="Jogar novamente"
-            />
+            android:textSize="15sp"
+            style="@style/Widget.MaterialComponents.Button" />
 
-    <Button
+
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSairDoJogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/vermelho"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:textSize="18dp"
+            android:backgroundTint="@color/vermelho"
             android:text="Sair do Jogo"
-            />
+            android:textSize="15sp"
+            style="@style/Widget.MaterialComponents.Button" />
 
 </LinearLayout>

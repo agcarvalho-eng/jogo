@@ -55,16 +55,18 @@
         android:layout_marginRight="20dp"
         />
 
-    <Button
-        android:id="@+id/btnJogar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="10dp"
-        android:backgroundTint="@color/azul"
-        android:text="JOGAR"
-        android:textSize="15dp" />
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnJogar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/azul"
+            android:text="JOGAR"
+            android:textSize="15sp"
+            style="@style/Widget.MaterialComponents.Button" />
+
 
     <ImageView
         android:layout_marginTop="25dp"
