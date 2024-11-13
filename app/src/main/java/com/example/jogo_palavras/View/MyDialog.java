@@ -1,4 +1,4 @@
-package com.example.joaovitor_avaliacao.View;
+package com.example.jogo_palavras.View;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -8,10 +8,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-
-import com.example.joaovitor_avaliacao.Model.Jogada;
-
-import java.util.ArrayList;
 
 public class MyDialog extends DialogFragment
 {

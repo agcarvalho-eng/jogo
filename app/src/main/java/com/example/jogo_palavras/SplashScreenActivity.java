@@ -1,4 +1,4 @@
-package com.example.joaovitor_avaliacao;
+package com.example.jogo_palavras;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import android.os.Looper;
-import com.example.joaovitor_avaliacao.View.MainActivity;
+import com.example.jogo_palavras.View.MainActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
     @Override

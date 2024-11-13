@@ -1,4 +1,4 @@
-package com.example.joaovitor_avaliacao.View;
+package com.example.jogo_palavras.View;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,13 +16,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.joaovitor_avaliacao.Model.Jogada;
-import com.example.joaovitor_avaliacao.Model.Jogo;
-import com.example.joaovitor_avaliacao.R;
-import com.example.joaovitor_avaliacao.Singletons.DadosGlobais;
-
-import java.security.PublicKey;
-import java.util.ArrayList;
+import com.example.jogo_palavras.Model.Jogo;
+import com.example.jogo_palavras.R;
+import com.example.jogo_palavras.Singletons.DadosGlobais;
 
 public class GameActivity extends AppCompatActivity
 {

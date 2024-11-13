@@ -1,7 +1,7 @@
-package com.example.joaovitor_avaliacao.Utils;
+package com.example.jogo_palavras.Utils;
 
 import android.content.Context;
-import com.example.joaovitor_avaliacao.R;
+import com.example.jogo_palavras.R;
 
 import java.util.Random;
 

@@ -1,6 +1,6 @@
-package com.example.joaovitor_avaliacao.Singletons;
+package com.example.jogo_palavras.Singletons;
 
-import com.example.joaovitor_avaliacao.Model.Jogada;
+import com.example.jogo_palavras.Model.Jogada;
 
 import java.util.ArrayList;
 

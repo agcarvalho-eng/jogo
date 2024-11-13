@@ -1,6 +1,5 @@
-package com.example.joaovitor_avaliacao.Adapters;
+package com.example.jogo_palavras.Adapters;
 
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.joaovitor_avaliacao.Model.Jogada;
-import com.example.joaovitor_avaliacao.R;
-import com.example.joaovitor_avaliacao.Singletons.DadosGlobais;
+import com.example.jogo_palavras.Model.Jogada;
+import com.example.jogo_palavras.R;
 
 import java.util.ArrayList;
 

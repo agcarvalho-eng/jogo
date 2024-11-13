@@ -1,4 +1,4 @@
-package com.example.joaovitor_avaliacao;
+package com.example.jogo_palavras;
 
 import android.content.Context;
 

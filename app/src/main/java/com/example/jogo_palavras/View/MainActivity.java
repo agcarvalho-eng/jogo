@@ -1,4 +1,4 @@
-package com.example.joaovitor_avaliacao.View;
+package com.example.jogo_palavras.View;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.example.joaovitor_avaliacao.R;
-import com.example.joaovitor_avaliacao.Utils.Auxiliar_Sorteio;
+import com.example.jogo_palavras.R;
+import com.example.jogo_palavras.Utils.Auxiliar_Sorteio;
 
 public class MainActivity extends AppCompatActivity {
     private Button btnJogar;

@@ -1,6 +1,6 @@
-package com.example.joaovitor_avaliacao.Model;
+package com.example.jogo_palavras.Model;
 
-import com.example.joaovitor_avaliacao.Singletons.DadosGlobais;
+import com.example.jogo_palavras.Singletons.DadosGlobais;
 
 public class Jogo
 {

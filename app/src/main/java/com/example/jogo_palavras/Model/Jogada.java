@@ -1,4 +1,4 @@
-package com.example.joaovitor_avaliacao.Model;
+package com.example.jogo_palavras.Model;
 
 public class Jogada
 {

@@ -1,11 +1,10 @@
-package com.example.joaovitor_avaliacao.View;
+package com.example.jogo_palavras.View;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -15,10 +14,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.joaovitor_avaliacao.Adapters.MyAdapter;
-import com.example.joaovitor_avaliacao.Model.Jogada;
-import com.example.joaovitor_avaliacao.R;
-import com.example.joaovitor_avaliacao.Singletons.DadosGlobais;
+import com.example.jogo_palavras.Adapters.MyAdapter;
+import com.example.jogo_palavras.Model.Jogada;
+import com.example.jogo_palavras.R;
+import com.example.jogo_palavras.Singletons.DadosGlobais;
 
 import java.util.ArrayList;
 import java.util.Comparator;
